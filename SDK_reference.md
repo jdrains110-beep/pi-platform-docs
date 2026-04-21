@@ -78,12 +78,12 @@ to be present:
 
 <br />
 
-Here is a breakdown of scopes with no return and methods requiring them:
+Here is a breakdown of scopes that do not add fields to `AuthResult['user']`, and the methods/flows that require them:
 
 | Scope         | Description    | Methods Requiring Scope  |
 | -------------: | ------------- | :-------------: |
-| `payments`      | Gives permission to the app to create payments on the users behalf | `createPayment` |
-| `wallet_address` | Gives the app access to the users public wallet address | `createPayment` - App to User Payments|
+| `payments`      | Gives permission to the app to create payments on the users behalf. This scope does not add any fields to `AuthResult['user']`. | `createPayment` |
+| `wallet_address` | Allows app-to-user payment flows that require the user's public wallet address. This value is not returned on `AuthResult['user']` by `authenticate`. | `createPayment` - App to User Payments |
 
 <br />
 ### `onIncompletePaymentFound`
